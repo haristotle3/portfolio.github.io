@@ -231,32 +231,67 @@ body {
   background: var(--google-blue);
 }
 
+.subdomains-section {
+  text-align: center;
+  background-color: var(--light-gray);
+  padding: 80px 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+  color: var(--dark-gray);
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    var(--google-blue),
+    var(--google-red),
+    var(--google-yellow),
+    var(--google-green)
+  );
+  border-radius: 2px;
+}
+
 .domains-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto auto;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 40px;
-  max-width: 900px;
-  margin: 60px auto;
-  place-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .domain-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
-  gap: 15px;
+  gap: 20px;
 }
 
 .domain-image {
   width: 150px;
   height: 150px;
+  border-radius: 15%;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+
   display: flex;
   justify-content: center;
-  border-radius: 15%;
+}
+
+.domain-image:hover {
+  transform: scale(1.05);
 }
 
 .domain-image img {
@@ -266,18 +301,73 @@ body {
 }
 
 .domain-caption {
-  font-size: 16px;
+  font-size: 1.1rem;
   font-weight: 500;
-  color: #3c4043;
-  text-align: center;
+  color: var(--dark-gray);
 }
 
-/* Make the grid 3-2 for 5 items */
-.domain-item:nth-child(4) {
-  grid-column: 1;
+.business-cases-section {
+  text-align: center;
+  padding: 80px 0;
 }
-.domain-item:nth-child(5) {
-  grid-column: 2;
+
+.business-case {
+  margin-bottom: 60px;
+}
+
+.case-title {
+  font-size: 1.8rem;
+  color: var(--google-blue);
+  margin-bottom: 30px;
+  text-align: center;
+  position: relative;
+}
+
+.case-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--google-red);
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+.case-studies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin: 0 auto;
+}
+
+.case-card {
+  background: white;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.case-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.case-card a {
+  text-decoration: none;
+  color: var(--dark-gray);
+}
+
+.case-card h4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: var(--google-blue);
+}
+
+.case-card p {
+  font-size: 1rem;
+  color: var(--dark-gray);
+  line-height: 1.5;
 }
 
 @media (max-width: 768px) {
@@ -312,8 +402,77 @@ body {
 
   .domains-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
   }
-  .domain-item:nth-child(5) {
-    grid-column: 1;
+
+  .business-case {
+    margin-bottom: 60px;
+  }
+
+  .case-title {
+    font-size: 1.8rem;
+    color: var(--google-blue);
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+  }
+
+  .case-title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--google-red);
+    margin: 15px auto 0;
+    border-radius: 2px;
+  }
+
+  .case-studies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin: 0 auto;
+  }
+
+  .case-card {
+    background: white;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .case-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .case-card a {
+    text-decoration: none;
+    color: var(--dark-gray);
+  }
+
+  .case-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--google-blue);
+  }
+
+  .case-card p {
+    font-size: 1rem;
+    color: var(--dark-gray);
+    line-height: 1.5;
+  }
+
+  .domain-image {
+    width: 120px;
+    height: 120px;
+  }
+  .case-studies-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .case-title {
+    font-size: 1.5rem;
   }
 }
