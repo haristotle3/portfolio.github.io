@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Case Study Template | Google Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+
+    <style>
+      /* Case Study Specific Styles */
+      .blue {
+        color: var(--google-blue);
+      }
+      .red {
+        color: var(--google-red);
+      }
+      .yellow {
+        color: var(--google-yellow);
+      }
+      .green {
+        color: var(--google-green);
+      }
+
+      /* Base font & colors */
+      @font-face {
+        font-family: "GoogleSans-Regular";
+        src: url("../assets/GoogleSans-Regular.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      :root {
+        --google-blue: #4285f4;
+        --google-red: #ea4335;
+        --google-yellow: #fbbc05;
+        --google-green: #34a853;
+        --google-gray: #f1f1f1;
+        --dark-gray: #3c4043;
+        --light-gray: #f8f9fa;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "GoogleSans-Regular", sans-serif;
+      }
+
+      .container {
+        max-width: 1200px;
+        width: 90%;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .navbar {
+        background-color: white;
+        box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        padding: 15px 0;
+      }
+
+      .navbar .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: 700;
+      }
+
+      .logo a {
+        text-decoration: none;
+        color: var(--dark-gray);
+      }
+
+      .menu {
+        list-style: none;
+        display: flex;
+        gap: 30px;
+      }
+
+      .menu li a.menu-btn {
+        text-decoration: none;
+        font-weight: 500;
+        color: var(--dark-gray);
+        transition: color 0.3s ease;
+        font-size: 20px;
+      }
+
+      .menu li a.menu-btn:hover {
+        color: var(--google-blue);
+      }
+
+      .menu-btn {
+        font-size: 24px;
+        cursor: pointer;
+        color: var(--dark-gray);
+      }
+
+      .case-study-container {
+        max-width: 900px;
+        margin: 0 auto 60px auto;
+        padding: 160px 20px 0 20px;
+      }
+
+      .case-study-title {
+        font-size: 2.2rem;
+        color: var(--google-blue);
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      .case-study-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(
+          to right,
+          var(--google-blue),
+          var(--google-red),
+          var(--google-yellow)
+        );
+      }
+
+      .case-study-subtitle {
+        font-size: 1.8rem;
+        color: var(--google-red);
+        margin: 30px 0 15px 0;
+      }
+
+      .case-study-image {
+        width: 100%;
+        border-radius: 12px;
+        margin: 25px 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .case-study-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--dark-gray);
+        margin-bottom: 25px;
+      }
+
+      .code-block {
+        background-color: #f8f9fa;
+        color: #3c4043;
+        padding: 20px;
+        border-radius: 10px;
+        overflow-x: auto;
+        font-family: "Courier New", monospace;
+        font-size: 15px;
+        margin: 30px 0;
+        border-left: 4px solid var(--google-blue);
+      }
+
+      .complexity-card {
+        background-color: white;
+        border-radius: 12px;
+        padding: 25px;
+        margin: 30px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e0e0e0;
+      }
+
+      .card-title {
+        font-size: 1.3rem;
+        color: var(--google-blue);
+        margin-bottom: 15px;
+      }
+
+      .complexity-table {
+        width: 100%;
+        border-collapse: collapse;
+        color: var(--dark-gray);
+        font-size: 1rem;
+      }
+
+      .complexity-table th,
+      .complexity-table td {
+        padding: 12px 15px;
+        border: 1px solid #e0e0e0;
+        text-align: left;
+      }
+
+      .complexity-table th {
+        background-color: var(--light-gray);
+        color: var(--dark-gray);
+      }
+
+      .references {
+        margin: 40px 0;
+      }
+
+      .reference-title {
+        font-size: 1.3rem;
+        color: var(--google-blue);
+        margin-bottom: 15px;
+      }
+
+      .reference-list {
+        list-style: disc;
+        padding-left: 25px;
+        color: var(--dark-gray);
+        line-height: 1.8;
+      }
+
+      .reference-link {
+        color: var(--google-blue);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .reference-link:hover {
+        color: var(--google-red);
+        text-decoration: underline;
+      }
+
+      .case-study-navigation {
+        display: flex;
+        justify-content: space-between;
+        margin: 60px 0 30px 0;
+      }
+
+      .nav-link {
+        color: var(--google-blue);
+        font-weight: 500;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .nav-link:hover {
+        color: var(--google-red);
+      }
+
+      @media (max-width: 768px) {
+        .case-study-container {
+          padding: 120px 15px 0 15px;
+        }
+
+        .case-study-title {
+          font-size: 1.8rem;
+        }
+
+        .case-study-subtitle {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="max-width container">
+        <div class="logo">
+          <a href="#">
+            <span class="blue">A</span><span class="red">P</span
+            ><span class="yellow">S</span
+            ><span class="aspirant">Portfolio</span>
+          </a>
+        </div>
+
+        <ul class="menu">
+          <li><a href="../index.html" class="menu-btn">Home</a></li>
+          <li>
+            <a href="../domain/#business-cases-section" class="menu-btn"
+              >Case studies</a
+            >
+          </li>
+          <li><a href="../index.html#contact" class="menu-btn">Details</a></li>
+        </ul>
+      </div>
+    </nav>
+
+
+    <section class="case-study-container">
+      <!-- Main Case Study Title -->
+      <h1 class="case-study-title">
+        <i class="fas fa-chart-line"></i> WebGL Graphics Optimization
+      </h1>
+
+      <!-- Section 1 -->
+      <h2 class="case-study-subtitle">
+        <i class="fas fa-boxes"></i> 1. Scene Graph Data Structure
+      </h2>
+      <p class="case-study-text">
+        Modern web graphics use hierarchical scene graphs to optimize rendering:
+        <ul class="reference-list">
+          <li>Tree structure organizing 3D objects and transformations</li>
+          <li>Enables efficient visibility culling and LOD (Level of Detail)</li>
+          <li>Batch rendering of similar materials/shader programs</li>
+        </ul>
+        Google Maps and Earth use optimized scene graphs to handle millions of 3D buildings while maintaining 60fps.
+      </p>
+      <img
+        src="webgpu.png"
+        alt="Scene graph visualization"
+        class="case-study-image"
+      />
+
+      <!-- Section 2 -->
+      <h2 class="case-study-subtitle">
+        <i class="fas fa-bolt"></i> 2. WebGL vs WebGPU Architecture
+      </h2>
+      <p class="case-study-text">
+        The evolution from WebGL to WebGPU represents a paradigm shift:
+        <table class="complexity-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>WebGL</th>
+              <th>WebGPU</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>API Design</td>
+              <td>OpenGL ES 2.0/3.0</td>
+              <td>Modern Vulkan/Metal/D3D12</td>
+            </tr>
+            <tr>
+              <td>Performance</td>
+              <td>~1M triangles/sec</td>
+              <td>~10M triangles/sec</td>
+            </tr>
+            <tr>
+              <td>Parallelism</td>
+              <td>Limited</td>
+              <td>Explicit multi-threading</td>
+            </tr>
+            <tr>
+              <td>Memory Control</td>
+              <td>Implicit</td>
+              <td>Explicit allocation</td>
+            </tr>
+          </tbody>
+        </table>
+      </p>
+
+      <!-- Code Block -->
+      <h3 class="case-study-subtitle">Implementation (WebGL Optimization):</h3>
+      <pre class="code-block"><code>
+// WebGL best practices for Google Maps-style rendering
+class WebGLOptimizedRenderer {
+  constructor() {
+    // 1. Geometry batching
+    this.batches = new Map(); // Key: material, Value: geometry
+    
+    // 2. Buffer management
+    this.bufferCache = new LRUCache(50); // Cache last 50 buffers
+    
+    // 3. Shader program cache
+    this.programCache = new Map();
+  }
+
+  render(sceneGraph) {
+    // Frustum culling first
+    const visibleNodes = this._frustumCull(sceneGraph);
+    
+    // Sort by material/shader
+    const renderQueue = this._sortByMaterial(visibleNodes);
+    
+    // Batch and render
+    renderQueue.forEach(batch => {
+      const program = this._getProgram(batch.material);
+      this._uploadGeometry(batch.geometry);
+      gl.drawElements(gl.TRIANGLES, batch.indicesCount, gl.UNSIGNED_SHORT, 0);
+    });
+  }
+  
+  // WebGPU equivalent would use command buffers and bind groups
+  // with explicit pipeline state management
+}
+
+// CPU vs GPU rendering comparison
+function renderScene() {
+  // CPU rendering (Canvas 2D)
+  const cpuStart = performance.now();
+  ctx2d.clearRect(0, 0, width, height);
+  objects.forEach(obj => obj.drawCPU(ctx2d)); // ~5fps for complex scenes
+  const cpuTime = performance.now() - cpuStart;
+  
+  // GPU rendering (WebGL)
+  const gpuStart = performance.now();
+  gl.clear(gl.COLOR_BUFFER_BIT);
+  renderer.render(scene); // ~60fps for same scene
+  const gpuTime = performance.now() - gpuStart;
+  
+  console.log(`CPU: ${cpuTime.toFixed(1)}ms, GPU: ${gpuTime.toFixed(1)}ms`);
+}
+      </code></pre>
+
+      <!-- Complexity Analysis -->
+      <div class="complexity-card">
+        <h3 class="card-title">Performance Analysis</h3>
+        <table class="complexity-table">
+          <thead>
+            <tr>
+              <th>Operation</th>
+              <th>WebGL Complexity</th>
+              <th>WebGPU Improvement</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Draw Calls</td>
+              <td>O(n) costly</td>
+              <td>Command buffers reduce overhead</td>
+            </tr>
+            <tr>
+              <td>State Changes</td>
+              <td>O(n) validation</td>
+              <td>Explicit pipelines (O(1))</td>
+            </tr>
+            <tr>
+              <td>Memory Transfer</td>
+              <td>Implicit sync (slow)</td>
+              <td>Explicit async transfers</td>
+            </tr>
+            <tr>
+              <td>Parallelism</td>
+              <td>Single thread</td>
+              <td>Multi-threaded recording</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Key Takeaways -->
+      <div class="references">
+        <h3 class="reference-title">Key Insights</h3>
+        <ul class="reference-list">
+          <li>WebGPU provides 3-5x performance gains over WebGL in Chrome experiments</li>
+          <li>Google Maps processes 10x more geometry with WebGPU than Canvas 2D</li>
+          <li>WebGL's strength remains broad compatibility (96% browser support)</li>
+          <li>WebGPU enables advanced techniques like ray tracing in browsers</li>
+          <li>Hybrid approaches use WebGL fallback when WebGPU unavailable</li>
+        </ul>
+      </div>
+
+      <!-- References -->
+      <div class="references">
+        <h3 class="reference-title">References & Resources</h3>
+        <ul class="reference-list">
+          <li>
+            <a href="https://developer.chrome.com/blog/webgpu-release/" target="_blank" class="reference-link">
+              Chrome WebGPU Launch
+            </a>
+          </li>
+          <li>
+            <a href="https://google.github.io/filament/Filament.md.html" target="_blank" class="reference-link">
+              Filament Engine (Used in Google Maps)
+            </a>
+          </li>
+          <li>
+            <a href="https://web.dev/webgpu-best-practices/" target="_blank" class="reference-link">
+              WebGPU Best Practices
+            </a>
+          </li>
+          <li>
+            <a href="https://blogs.windows.com/msedgedev/2023/01/17/the-future-of-3d-on-the-web-webgl-and-webgpu/" target="_blank" class="reference-link">
+              WebGL vs WebGPU Comparison
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Navigation -->
+      <div class="case-study-navigation">
+        <a href="ray-tracing.html" class="nav-link"
+          ><i class="fas fa-arrow-left"></i> Previous: Ray Tracing</a
+        >
+        <a href="webxr-optimization.html" class="nav-link"
+          >Next: WebXR Optimization <i class="fas fa-arrow-right"></i
+        ></a>
+      </div>
+    </section>
+  </body>
+</html>
