@@ -1,0 +1,263 @@
+.blue {
+  color: var(--google-blue);
+}
+.red {
+  color: var(--google-red);
+}
+.yellow {
+  color: var(--google-yellow);
+}
+.green {
+  color: var(--google-green);
+}
+
+/* Base font & colors */
+@font-face {
+  font-family: "GoogleSans-Regular";
+  src: url("../assets/GoogleSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --google-blue: #4285f4;
+  --google-red: #ea4335;
+  --google-yellow: #fbbc05;
+  --google-green: #34a853;
+  --google-gray: #f1f1f1;
+  --dark-gray: #3c4043;
+  --light-gray: #f8f9fa;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "GoogleSans-Regular", sans-serif;
+}
+
+body {
+  background-color: white;
+  color: var(--dark-gray);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.navbar {
+  background-color: white;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 15px 0;
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.logo a {
+  text-decoration: none;
+  color: var(--dark-gray);
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.menu li a.menu-btn {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--dark-gray);
+  transition: color 0.3s ease;
+  font-size: 20px;
+}
+
+.menu li a.menu-btn:hover {
+  color: var(--google-blue);
+}
+
+.menu-btn {
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--dark-gray);
+}
+
+.section {
+  padding: 100px 0;
+  clear: both;
+}
+
+.domain-section.section {
+  text-align: center;
+}
+
+.domain-section h2 {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--google-blue);
+}
+
+.domain-section p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--dark-gray);
+}
+
+.intro-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+}
+
+.intro-image {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.intro-image img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+.intro-paragraph {
+  flex: 2;
+  min-width: 300px;
+}
+
+.intro-text h2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: var(--google-blue);
+}
+
+.intro-paragraph p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--dark-gray);
+  max-width: 700px;
+}
+
+.objectives-section {
+  background-color: var(--light-gray);
+  border-radius: 8px;
+  margin: 40px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.objectives-container {
+  padding: 40px;
+}
+
+.objectives-section h2 {
+  font-size: 2.2rem;
+  color: var(--google-blue);
+  margin-bottom: 30px;
+  text-align: center;
+  position: relative;
+}
+
+.objectives-section h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    var(--google-blue),
+    var(--google-red),
+    var(--google-yellow),
+    var(--google-green)
+  );
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+.objectives-section ul {
+  list-style-type: none;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.objectives-section li {
+  background-color: white;
+  margin-bottom: 20px;
+  padding: 20px 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: relative;
+  padding-left: 50px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.objectives-section li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.objectives-section li::before {
+  content: "";
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--google-blue);
+}
+
+@media (max-width: 768px) {
+  .intro-container {
+    flex-direction: column;
+  }
+
+  .intro-image,
+  .intro-paragraph {
+    max-width: 100%;
+  }
+
+  .menu {
+    display: none; /* Hide menu on mobile by default */
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .objectives-container {
+    padding: 30px 20px;
+  }
+
+  .objectives-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .objectives-section li {
+    padding: 15px 20px 15px 40px;
+  }
+}
