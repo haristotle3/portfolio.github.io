@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pagerank | Google Portfolio</title>
+    <title>Case Study Template | Google Portfolio</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -292,108 +292,31 @@
     <section class="case-study-container">
       <!-- Main Case Study Title -->
       <h1 class="case-study-title">
-        <i class="fas fa-project-diagram"></i> PageRank Optimization
+        <i class="fas fa-project-diagram"></i> [Case Study Title]
       </h1>
 
       <!-- Section 1 -->
       <h2 class="case-study-subtitle">
-        <i class="fas fa-chart-line"></i> 1. Graph Data Structure with Adjacency
-        Lists
+        <i class="fas fa-chart-line"></i> 1. [Section Title]
       </h2>
       <p class="case-study-text">
-        PageRank relies on representing the web as a directed graph where nodes
-        are web pages and edges are hyperlinks. An adjacency list data structure
-        is optimal for this as it efficiently represents sparse graphs (like the
-        web) and allows quick access to a page's inbound and outbound links. The
-        algorithm iteratively computes rankings by treating links as votes of
-        importance, with votes from highly-ranked pages carrying more weight.
+        [Detailed explanation of this section. Describe the problem, solution,
+        and implementation.]
       </p>
       <img
-        src="pagerank.gif"
-        alt="PageRank graph representation"
+        src="../assets/[image-name].png"
+        alt="[Description of visual]"
         class="case-study-image"
       />
 
       <!-- Code Block -->
       <h3 class="case-study-subtitle">Implementation:</h3>
       <pre class="code-block"><code>
-class PageRank {
-  constructor(dampingFactor = 0.85, epsilon = 1.0e-8) {
-    this.dampingFactor = dampingFactor; // Typically 0.85
-    this.epsilon = epsilon; // Convergence threshold
-    this.graph = new Map(); // Adjacency list: {page: [outboundLinks]}
-    this.inbound = new Map(); // Reverse graph: {page: [inboundLinks]}
-    this.ranks = new Map();
-  }
-
-  addLink(source, target) {
-    // Build forward graph
-    if (!this.graph.has(source)) {
-      this.graph.set(source, []);
-    }
-    this.graph.get(source).push(target);
-
-    // Build reverse graph for efficient inbound access
-    if (!this.inbound.has(target)) {
-      this.inbound.set(target, []);
-    }
-    this.inbound.get(target).push(source);
-  }
-
-  initialize() {
-    const N = this.graph.size;
-    const initialRank = 1.0 / N;
-    for (const page of this.graph.keys()) {
-      this.ranks.set(page, initialRank);
-    }
-  }
-
-  compute() {
-    this.initialize();
-    let iterations = 0;
-    let delta = 1.0;
-    const N = this.graph.size;
-
-    while (delta > this.epsilon) {
-      const newRanks = new Map();
-      let totalChange = 0.0;
-      const dampingValue = (1 - this.dampingFactor) / N;
-
-      for (const [page] of this.ranks) {
-        let rank = dampingValue;
-        
-        // Sum votes from inbound links
-        if (this.inbound.has(page)) {
-          for (const inboundPage of this.inbound.get(page)) {
-            const outDegree = this.graph.get(inboundPage).length;
-            rank += this.dampingFactor * (this.ranks.get(inboundPage) / outDegree);
-          }
-        }
-        
-        newRanks.set(page, rank);
-        totalChange += Math.abs(rank - this.ranks.get(page));
-      }
-
-      this.ranks = newRanks;
-      delta = totalChange;
-      iterations++;
-    }
-
-    return { ranks: this.ranks, iterations };
-  }
+[Your code implementation here]
+// Example code structure
+function googleAlgorithm() {
+  // Implementation details
 }
-
-// Example usage:
-const pagerank = new PageRank();
-pagerank.addLink('A', 'B');
-pagerank.addLink('A', 'C');
-pagerank.addLink('B', 'C');
-pagerank.addLink('C', 'A');
-pagerank.addLink('D', 'C');
-
-const result = pagerank.compute();
-console.log('Final PageRanks:', result.ranks);
-console.log('Iterations to converge:', result.iterations);
       </code></pre>
 
       <!-- Complexity Analysis -->
@@ -409,24 +332,14 @@ console.log('Iterations to converge:', result.iterations);
           </thead>
           <tbody>
             <tr>
-              <td>Initialization</td>
-              <td>O(N)</td>
-              <td>Initialize ranks for N pages</td>
+              <td>[Operation 1]</td>
+              <td>O([complexity])</td>
+              <td>[Brief explanation]</td>
             </tr>
             <tr>
-              <td>Single Iteration</td>
-              <td>O(M)</td>
-              <td>Process M links in the graph</td>
-            </tr>
-            <tr>
-              <td>Total Runtime</td>
-              <td>O(K*M)</td>
-              <td>K iterations until convergence (typically ~50)</td>
-            </tr>
-            <tr>
-              <td>Space</td>
-              <td>O(N + M)</td>
-              <td>Store graph and rank vectors</td>
+              <td>[Operation 2]</td>
+              <td>O([complexity])</td>
+              <td>[Brief explanation]</td>
             </tr>
           </tbody>
         </table>
@@ -436,22 +349,9 @@ console.log('Iterations to converge:', result.iterations);
       <div class="references">
         <h3 class="reference-title">Key Insights</h3>
         <ul class="reference-list">
-          <li>
-            PageRank models the web as a Markov chain where the stationary
-            distribution represents page importance
-          </li>
-          <li>
-            The damping factor (typically 0.85) accounts for random jumps and
-            prevents rank sinks
-          </li>
-          <li>
-            Google's actual implementation uses sophisticated optimizations like
-            block ranking and parallelization
-          </li>
-          <li>
-            Modern variants handle dynamic graphs and spam detection through
-            trust metrics
-          </li>
+          <li>[Important takeaway 1]</li>
+          <li>[Important takeaway 2]</li>
+          <li>[Important takeaway 3]</li>
         </ul>
       </div>
 
@@ -460,30 +360,13 @@ console.log('Iterations to converge:', result.iterations);
         <h3 class="reference-title">References & Resources</h3>
         <ul class="reference-list">
           <li>
-            <a
-              href="https://en.wikipedia.org/wiki/PageRank"
-              target="_blank"
-              class="reference-link"
-            >
-              Wikipedia: PageRank Algorithm
+            <a href="[reference-link]" target="_blank" class="reference-link">
+              [Reference title or URL]
             </a>
           </li>
           <li>
-            <a
-              href="http://ilpubs.stanford.edu:8090/422/"
-              target="_blank"
-              class="reference-link"
-            >
-              Original PageRank Paper by Brin & Page
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://research.google/pubs/pub334/"
-              target="_blank"
-              class="reference-link"
-            >
-              Google Research: Large-Scale PageRank Implementation
+            <a href="[reference-link]" target="_blank" class="reference-link">
+              [Reference title or URL]
             </a>
           </li>
         </ul>
@@ -491,10 +374,10 @@ console.log('Iterations to converge:', result.iterations);
 
       <!-- Navigation -->
       <div class="case-study-navigation">
-        <a href="#" class="nav-link"
+        <a href="[previous-case].html" class="nav-link"
           ><i class="fas fa-arrow-left"></i> Previous Case</a
         >
-        <a href="#" class="nav-link"
+        <a href="[next-case].html" class="nav-link"
           >Next Case <i class="fas fa-arrow-right"></i
         ></a>
       </div>
