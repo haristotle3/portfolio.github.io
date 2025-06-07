@@ -1,4 +1,10 @@
-/* Google-inspired color palette */
+@font-face {
+  font-family: 'GoogleSans-Regular';
+  src: url('./assets/GoogleSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --google-blue: #4285f4;
   --google-red: #ea4335;
@@ -9,12 +15,11 @@
   --light-gray: #f8f9fa;
 }
 
-/* Base styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Roboto", Arial, sans-serif;
+  font-family: 'GoogleSans-Regular', sans-serif;
 }
 
 body {
@@ -30,7 +35,6 @@ body {
   padding: 0 20px;
 }
 
-/* Header styles */
 header {
   background-color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -44,6 +48,10 @@ header {
   font-size: 24px;
   font-weight: 700;
   display: inline-block;
+}
+
+.logo a {
+  text-decoration: none;
 }
 
 .blue {
@@ -88,7 +96,6 @@ nav ul li a:hover {
   color: var(--google-blue);
 }
 
-/* Hero section */
 #hero {
   padding: 150px 0 100px;
   background-color: var(--light-gray);
@@ -164,8 +171,6 @@ p {
 .btn:hover {
   background-color: #3367d6;
 }
-
-/* Section styles */
 .section {
   padding: 100px 0;
   clear: both;
@@ -196,7 +201,6 @@ p {
   background-color: var(--light-gray);
 }
 
-/* About section */
 .about-content {
   display: flex;
   justify-content: space-between;
@@ -204,17 +208,17 @@ p {
 }
 
 .about-text {
-  width: 60%;
+  width: 100%;
 }
 
 .about-image {
   width: 35%;
 }
 
-/* Skills section */
 .skills-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
@@ -254,10 +258,10 @@ p {
   font-size: 14px;
 }
 
-/* Projects section */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
 }
 
@@ -303,7 +307,6 @@ p {
   color: #3367d6;
 }
 
-/* Timeline */
 .timeline {
   position: relative;
   max-width: 800px;
@@ -358,7 +361,6 @@ p {
   margin-bottom: 10px;
 }
 
-/* Contact section */
 .contact-content {
   display: flex;
   justify-content: space-between;
@@ -410,7 +412,6 @@ p {
   transform: translateY(-3px);
 }
 
-/* Footer */
 footer {
   background-color: var(--dark-gray);
   color: white;
@@ -423,7 +424,6 @@ footer p {
   font-size: 14px;
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
   .hero-content,
   .hero-image,
@@ -463,7 +463,7 @@ footer p {
   }
 }
 
-/* Clear floats */
+/*Some AI code*/
 .clearfix::after {
   content: "";
   display: table;
